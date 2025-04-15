@@ -1,0 +1,12 @@
+services:
+  elasticsearch-to-postgresql-migration:
+    build:
+      context: .  # Build context is the current directory
+      dockerfile: Dockerfile  # Use the Dockerfile named "Dockerfile"
+    env_file:
+      - ./cred/.env  # Path to the .env file
+    volumes:
+      - app/es-to-pg/logs:/app/logs  # Mount logs
+      - app/es-to-pg/cred:/app/cred  # env and other credentials files
+      - app/es-to-pg/config:/app/config # configiguration file
+   
